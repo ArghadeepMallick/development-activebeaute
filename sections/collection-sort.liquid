@@ -1,0 +1,51 @@
+<div class="container-fluid heading-tag">
+    <h2 class="top-head">Shop All</h2>
+</div>
+
+<!-- home section start -->
+<section class="home-alider">
+    <div id="{{section.settings.carouselExampleIndicators}}" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for block in section.blocks %}
+            <div class="carousel-item {% if forloop.first %} active {% endif %}" data-interval="1000">
+                <img src="{{ block.settings.banner | img_url:'1800x600' }}" alt="..." width="100%">
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- home section end -->
+
+<section class="container-fluid head-bar">
+    <div class="heading">
+        <h6>all products</h6>
+         <div class="line">
+            <p>Sort By:</p>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>All</option>
+                <option value="1">Skin Type</option>
+                <option value="2">Skin Concern</option>
+                <option value="3">Skin Product</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Collection",
+    "blocks": [
+    {
+      "type": "select",
+      "name": "Banner Immage",
+      "settings": [
+		{
+          	"id": "banner",
+          	"type": "image_picker",
+			"label": "Add Image for Banner"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

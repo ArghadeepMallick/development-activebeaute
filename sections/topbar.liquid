@@ -1,0 +1,32 @@
+<div id="top-bar" class="owl-carousel">
+    <p>{{ section.settings.home-top-one }}</p>
+    <p class="middle">{{ section.settings.home-top-two }}</p>
+  <p>{{ section.settings.home-top-three }}</p>
+</div>
+
+{% schema %}
+{
+    "name": "Top Bar",
+	"settings": [
+	  {
+		"id": "home-top-one",
+		"type": "text",
+		"label": "First Topbar text",
+		"default": "Free Shipping on Rs. 49+"
+     },
+	 {
+		"id": "home-top-two",
+		"type": "text",
+		"label": "Second Topbar Text",
+		"default": "Free Cotton Rounds on $49+ | Code: REUSE"
+     },
+	{
+		"id": "home-top-three",
+		"type": "text",
+		"label": "Third Topbar text",
+		"default": "ACTIVE BEAUTE PerksGet Started"
+     }
+	]
+
+}
+{% endschema %}

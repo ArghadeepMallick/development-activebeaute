@@ -1,0 +1,37 @@
+<section class="home-alider">
+    <div id="{{section.settings.carouselExampleIndicators}}" class="carousel slide" data-bs-ride="carousel">
+      {% for block in section.blocks %}
+              	<div class="carousel-inner">
+					<div class="carousel-item {% if forloop.first %} active {% endif %}" data-interval="1000">
+						<img class="for-pc" src="{{ block.settings.image_slide_lg | img_url:'1800x600' }}" alt="..." width= "100%"/>
+						<img class="for-mb" src="{{ block.settings.image_slide_sm | img_url:'264x330' }}" alt="..." width= "100%"/>
+					</div>
+				</div>
+              {% endfor %}
+      
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Home Banner",
+    "blocks": [
+    {
+      "type": "select",
+      "name": "Add Image Slider",
+      "settings": [
+		{
+          	"id": "image_slide_lg",
+          	"type": "image_picker",
+			"label": "Add Image for Desktop view"
+        },
+        {
+          	"id": "image_slide_sm",
+          	"type": "image_picker",
+       		"label": "Add Image for Mobile view"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

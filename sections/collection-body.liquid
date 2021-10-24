@@ -1,0 +1,231 @@
+{% paginate collection.products %}
+
+<section class="container-fluid mobile-filter">
+        <div class="row">
+            <div class="logo">
+                <img src="./image/filter.svg" alt="">
+            </div>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>SKIN TYPE</option>
+                <option value="1">Best Sellers</option>
+                <option value="2">Body Care</option>
+                <option value="3">Eye Care</option>
+                <option value="4">Hair Care</option>
+                <option value="5">Kits & Sets</option>
+                <option value="6">Cleansers</option>
+            </select>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>SKIN CONCERN</option>
+                <option value="1">Best Sellers</option>
+                <option value="2">Body Care</option>
+                <option value="3">Eye Care</option>
+                <option value="4">Hair Care</option>
+                <option value="5">Kits & Sets</option>
+                <option value="6">Cleansers</option>
+            </select>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>SKIN PRODUCT</option>
+                <option value="1">Best Sellers</option>
+                <option value="2">Body Care</option>
+                <option value="3">Eye Care</option>
+                <option value="4">Hair Care</option>
+                <option value="5">Kits & Sets</option>
+                <option value="6">Cleansers</option>
+            </select>
+            
+        </div>
+        <div class="text-filter">
+            <a href="#!">0 filters applied</a>
+            <p>86 result(s)</p>
+            <a href="#!">Clear All</a>
+        </div>
+    </section>
+
+    <section class="container-fluid product-collection">
+        <div class="row">
+            <div class="col-md-2 col-12 filter">
+                <p>FILTER BY</p>
+                <div class="ul">
+                    <p>CATEGORY</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Best Sellers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Body Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Eye Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Hair Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Kits & Sets
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Cleansers
+                        </label>
+                    </div>
+                </div>
+                <div class="ul">
+                    <p>SKIN CONCERN</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Best Sellers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Body Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Eye Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Hair Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Kits & Sets
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Cleansers
+                        </label>
+                    </div>
+                </div>
+                <div class="ul">
+                    <p>COLLECTION</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Best Sellers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Body Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Eye Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Hair Care
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Kits & Sets
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Cleansers
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-10 col-12">
+                <!-- foundation product start  -->
+                <div class="featured-product padding-top-bottom">
+                    <div class="container-fluid">
+                        <div class="row">
+                          {% for product in collection.products %}
+                            <div class="col-md-4 col-6 product-item">
+                              <a class="product-image" href="{{ product.url | within: collection }}">
+                                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" width="70%">
+                              </a>
+                                <h6>{{ product.title }}</h6>
+                                <div class="price-stars">
+                                    <div class="review-stars">
+                                        <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" width="20px;" /></a></li>
+                                        <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" width="20px;" /></a></li>
+                                        <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" width="20px;" /></a></li>
+                                        <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" width="20px;" /></a></li>
+                                        <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" width="20px;" /></a></li>
+                                    </div>
+                                    <div class="reviews">(8 Reviews)</div>
+                                </div>
+
+                                <h5>&#x20B9; {{ product.price | money }} <span> &#x20B9; 2300/-</span></h5>
+                                <a class="add-to-cart" href="#!">Shop now</a>
+                            </div>
+                          {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- foundation product End -->
+                <div class="button">
+                    <button class="btn">load more</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% comment %}
+  {% for product in collection.products %}
+    <div>
+      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      {{ product.price | money }}
+      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+      <a href="{{ product.url | within: collection }}">
+        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+      </a>
+    </div>
+  {% else %}
+    <p>no matches</p>
+  {% endfor %}
+  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
+{% endcomment %}
+
+{% endpaginate %}
+
+
+
+
+{% schema %}
+  {
+    "name": "Section body",
+    "settings": []
+  }
+{% endschema %}
+

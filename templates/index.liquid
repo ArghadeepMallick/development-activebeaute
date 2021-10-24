@@ -1,0 +1,29 @@
+
+{%- liquid
+section 'home-banner'
+section 'home-product'
+section 'home-customer-review'
+section 'home-offer'
+section 'home-highlight'
+section 'home-category'
+section 'home-video'
+section 'home-blog'
+section 'home-social-media' -%}
+
+{%- comment -%}
+{% assign collection = collections['all'] %}
+<ol>
+    {% for product in collection.products %}
+    {% if product.media %}
+    <li>{{product.title}}: True</li>
+
+    {% assign images = product.media | where: "media_type", "image" %}
+    {% for image in images %}
+    <img src="{{image.src | img_url }}" alt="{{image.alt}}" />
+    {% endfor %}
+    {% else %}
+    <li>{{product.title}}: False</li>
+    {% endif %}
+    {% endfor %}
+</ol>
+{%- endcomment -%}
