@@ -1,57 +1,204 @@
-<div class="page-width">
-  <div class="section-header text-center">
-    <h1>{{ 'customer.account.title' | t }}</h1>
-    {{ 'layout.customer.log_out' | t | customer_logout_link }}
+{% section 'header' %}
+{% section 'top-icon-categories' %}
+
+
+<!-- Begin ReCharge code -->
+
+<!-- End ReCharge code -->
+
+<style>
+  nav .main-menu img {filter: brightness(1) invert(0);}
+  nav .main-menu ul li a {color: #383838;}
+  nav a.menu-icon img {filter: brightness(1) invert(0) !important;}
+</style>
+
+<script type="text/javascript">
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+    }
+  };
+
+  var userlogin = getUrlParameter('we');
+  if (typeof userlogin === 'undefined') {
+
+  }
+  else{
+    if(userlogin == 'l'){
+      var cust_id = '{{ customer.id }}';
+      var cust_email_id = '{{ customer.email }}';
+      webengage.track("login");
+      webengage.user.login(cust_email_id); 
+      webengage.user.setAttribute('we_email', cust_email_id);
+
+      var uri = window.location.toString();
+      if (uri.indexOf("?") > 0) {
+        var clean_uri = uri.substring(0, uri.indexOf("?"));
+        window.history.replaceState({}, document.title, clean_uri);
+      }
+    }
+    else if(userlogin == '2'){
+      var cust_id = '{{ customer.id }}';
+      var cust_email_id = '{{ customer.email }}';
+      webengage.track("Register");
+      webengage.user.login(cust_email_id); 
+      webengage.user.setAttribute('we_email', cust_email_id);
+       
+      var uri = window.location.toString();
+      if (uri.indexOf("?") > 0) {
+        var clean_uri = uri.substring(0, uri.indexOf("?"));
+        window.history.replaceState({}, document.title, clean_uri);
+      }
+    }
+    
+    
+  }
+  
+</script>
+
+
+
+<style>
+  th,td{
+  border: 1px solid black;
+    padding:20px;
+  }
+  
+  .Container--narrow{
+  
+  width: 80%;
+    margin:auto;
+    display:block;
+   
+  }
+  
+</style>
+
+<section class="the-account-page  top-bototm-padding-new padding-top-bottom">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+         
+
+<div class="">
+  <div class="PageHeader">
+    <div class="SectionHeader">
+      <h1 style="font-weight:700;" class="SectionHeader__Heading Heading u-h1">{{ 'customer.account.title' | t }}</h1>
+      <p class="SectionHeader__Description">{{ 'customer.account.welcome' | t: first_name: customer.first_name }}</p>
+    </div>
+    <div id="recurpay-account-widget"></div>
   </div>
 
-  <div class="grid myaccount">
-    <div class="grid__item myaccount__order-history">
-      <h2>{{ 'customer.orders.title' | t }}</h2>
+  <hr style="margin-bottom:30px;margin-top:30px;">
 
-      {% paginate customer.orders by 20 %}
-        {% if customer.orders.size != 0 %}
+  <div class="PageLayout PageLayout--breakLap">
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    ORDER HISTORY
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
 
-          <table class="responsive-table">
-            <thead>
-              <tr>
-                <th scope="col">{{ 'customer.orders.order_number' | t }}</th>
-                <th scope="col">{{ 'customer.orders.date' | t }}</th>
-                <th scope="col">{{ 'customer.orders.payment_status' | t }}</th>
-                <th scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
-                <th scope="col">{{ 'customer.orders.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for order in customer.orders %}
+    <div class="PageLayout__Section">
+      
+
+      {%- if customer.orders.size == 0 -%}
+        <div class="Segment">
+          <h2 class="Segment__Title Heading u-h7">{{ 'customer.account.no_orders_title' | t }}</h2>
+
+          <div class="Segment__Content">
+            <p>{{ 'customer.account.no_orders_content' | t }}</p>
+          </div>
+        </div>
+      {%- else -%}
+        {%- paginate customer.orders by 25 -%}
+      
+            <h5 style="font-weight:700;margin-bottom:20px;">Your Order History:</h5>
+          <div class="TableWrapper table-responsive">
+            <table class="table-bordered table-fixed AccountTable Table Table--large">
+              <thead class="Text--subdued ">
                 <tr>
-                  <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
-                    <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
-                  </th>
-                  <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
-                  <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-                  <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
-                  <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                  <th>Order</th>
+                  <th>Date</th>
+                  <th>Payment status	</th>
+                  <th>Payment status	</th>
+                  <th class="Text--alignRight">Total</th>
                 </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+              </thead>
 
-        {% else %}
+              <tbody class="Heading u-h7">
+                {%- for order in customer.orders -%}
+                  <tr>
+                    <td><a href="{{ order.customer_url }}" class="Link Link--underline">{{ order.name }}</a></td>
+                    <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td>{{ order.financial_status_label }}</td>
+                    <td>{{ order.fulfillment_status_label }}</td>
+                    <td class="Text--alignRight">{{ order.total_price | money_without_trailing_zeros }}</td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
 
-          <p>{{ 'customer.orders.none' | t }}</p>
-
-        {% endif %}
-        {%- if paginate.pages > 1 -%}
-          {% include 'pagination', paginate: paginate %}
-        {%- endif -%}
-      {% endpaginate %}
+          {%- include 'pagination' -%}
+        {%- endpaginate -%}
+      {%- endif -%}
     </div>
-    <div class="grid__item myaccount__account-details">
-      <h2>{{ 'customer.account.details' | t }}</h2>
+    <hr style="margin-bottom:30px;margin-top:30px;">
 
-      {{ customer.default_address | format_address }}
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    ADDRESS
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
 
-      <p><a href="{{ routes.account_addresses_url }}" class="btn btn--small">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+    <div class="PageLayout__Section PageLayout__Section--secondary">
+      <div class="Segment">
+        {%- if customer.addresses_count == 0 -%}
+          <h5 style="font-weight:700;margin-bottom:20px;" class="Segment__Title Heading u-h7">{{ 'customer.account.no_addresses_title' | t }}</h5>
+
+          <div class="Segment__Content" style="border:1px solid #000;border-radius:3px; width:auto;padding:20px;">
+            <p>{{ 'customer.account.no_addresses_content' | t }}</p>
+
+            <div class="Segment__ButtonWrapper">
+              <a href="/account/addresses" class="Button Button--primary">{{ 'customer.account.manage_addresses' | t }}</a>
+            </div>
+          </div>
+        {%- else -%}
+          <h5 style="font-weight:700;margin-bottom:20px;" class="Segment__Title Heading u-h7">{{ 'customer.account.default_address' | t }}</h5>
+
+          <div class="Segment__Content col-md-4" style="border:1px solid #000;border-radius:3px; width:auto;padding:20px;">
+            {{ customer.default_address | format_address | replace: '<p>', '<p class="AccountAddress"><span>' | replace_first: '<br>', '</span><br>' }}
+            <hr style="background:#000;">
+            <div class="Segment__ButtonWrapper">
+              <a style="color:#f16a2a;" href="/account/addresses" class="Button Button--primary">{{ 'customer.account.edit_addresses' | t }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg></a>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
     </div>
   </div>
+  <hr style="margin-bottom:30px;margin-top:30px;">
+  <a href="/account/logout" class=" logout-button PageHeader__Back Heading Text--subdued Link Link--primary u-h7 logout-webengage">{{ 'customer.account.logout' | t }}</a>
 </div>
+        
+        
+      </div>
+    </div>
+  </div>
+
+</section> 
+
+
+

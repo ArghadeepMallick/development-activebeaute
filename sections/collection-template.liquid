@@ -1,0 +1,113 @@
+
+
+
+<section class="container-fluid head-bar">
+        <div class="heading">
+            <h6>{{ page_title }}</h6>
+            <div class="line">
+                <p>Sort By:</p>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>All</option>
+                    <option value="1">Price Low - High</option>
+                    <option value="2">Price High - Low</option>
+                    <option value="3">Products Title A–Z</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+<section class="container-fluid product-collection">
+        <div class="row">
+            <div class="col-md-2 col-12 filter">
+                <p class="filtertext">FILTER BY</p>
+                <div class="ul">
+                    <p>CATEGORY</p>
+                    <div class="form-check">
+                      <a href="https://active-beaute.myshopify.com/collections/face-wash">Face Wash</a>
+                    </div>
+                    <div class="form-check">
+                      <a href="https://active-beaute.myshopify.com/collections/scrubs">Scrubs</a>
+                    </div>
+                    <div class="form-check">
+                      <a href="https://active-beaute.myshopify.com/collections/face-creams">Face Cream</a>
+                    </div>
+                    <div class="form-check">
+                      <a href="https://active-beaute.myshopify.com/collections/serum">Serum</a>
+                    </div>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/mist">Mist</a>
+                    </div>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/face-wash">Value Sets</a>
+                    </div>
+                </div>
+                <div class="ul">
+                    <p>SKIN CONCERN</p>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/brightening-range">Pigmentation</a>
+                    </div>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/pollution">Pollution</a>
+                    </div>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/advance-hydration">Dryness</a>
+                    </div>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/acne">Oil Control</a>
+                    </div>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/sensitive-skin">Sensitive Skin</a>
+                    </div>
+                    <div class="form-check">
+                        <a href="https://active-beaute.myshopify.com/collections/sensitive-skin">Fine Lines & Wrinkles</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 col-12">
+                <!-- foundation product start  -->
+                <div class="featured-product thecollectionproducts padding-top-bottom">
+                    <div class="container-fluid">
+                        <div class="row">
+                            
+                          
+                          {% paginate collection.products by 250 %}
+                          {% for product in collection.products %}
+                          	<div class="col-md-4 col-6 product-item">
+                                <a class="foo product-image" href="{{ product.url }}">
+                                  
+                                    <img  src="{{  product.images[0] | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        
+        {% if product.images.size == 1 %} 
+     <img  src="{{  product.images[0] | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+{% else %}
+  <img  src="{{  product.images[1] | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape  }}"/>
+{% endif %}
+                                  
+<!--                                   <img src="{{ product | img_url: '900x900' }}" width="70%" /> -->
+                              
+                              
+                              </a>
+                                <a class="product-image" href="{{ product.url }}"><h6>{{ product.title }}</h6></a>
+                                <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+
+                                <h5> {{product.price | money_with_currency}} <span> {{product.compare_at_price | money_with_currency}}</span></h5>
+                                {% include 'loopatc' %}
+                            </div>
+                             {% endfor %}
+                          {% endpaginate %}
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                
+<!--                 <div class="button">
+                    <button class="btn">load more</button>
+                </div> -->
+              
+              
+            </div>
+        </div>
+    </section>

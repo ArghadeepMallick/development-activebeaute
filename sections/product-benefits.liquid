@@ -1,56 +1,60 @@
-<section class="benefits padding-top-bottom">
-    <div class="container">
-        <div class="top-head">
-            <h2>benefits</h2>
-        </div>
-        <div class="row">
+<section class="benefits-new padding-top-bottom">
+      <div class="container">
+         <div class="row justify-content-center align-items-center">
+            <div class="col-md-5">
+               <img src="{{ product.metafields.custom_fields["add_benefit_image"] }}" width="100%" alt="">
+            </div>
+            <div class="col-md-4">
+            	<h2>benefits</h2>	
+               <ul>
+                 	{% for item in product.metafields.custom_fields["benefits_section_items"] %}
+               			<li>{{ item["add_benefits_item"] }}</li>
+                    {% endfor %}
+               </ul>
+            </div>
+         </div>
+      </div>
+   </section>
+
+<section class="benefits padding-top-bottom" style="display:none;">
+      <div class="container">
+      	 <div class="top-head">
+      	 	<h2>benefits</h2>	
+      	 </div>
+         <div class="row">
+           
+           
+           {% if product.metafields.custom_fields["left_side_benefits"] != blank %}
             <div class="col-md-4 col-6 left-div">
-                <div class="sub-div">
-                    <p>1</p>
-                    <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_62.png?v=1631734338"
-                        alt="" />
-                    <small>Provides deep yet gentle cleanse and exfoliation</small>
-                </div>
-                <div class="sub-div">
-                    <p>2</p>
-                    <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_67.png?v=1631734338"
-                        alt="" />
-                    <small>Removes dry and dead skin, makeup.</small>
-                </div>
-                <div class="sub-div">
-                    <p>3</p>
-                    <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_67.png?v=1631734338"
-                        alt="" />
-                    <small>Removes dry and dead skin, makeup.</small>
-                </div>
+              {% for item in product.metafields.custom_fields["left_side_benefits"] %}
+               <div class="sub-div">
+                  <p>{{ item["benefit_number"] }}</p>
+                  <img src="{{ item["left_benefit_image"] }}" alt="">
+                  <small>{{ item["left_benefit_text"] }}</small>
+               </div>
+              {% endfor %}
             </div>
+           {% endif %}
+           
+           
+           {% if product.metafields.custom_fields["benefits_product_image"] != blank %}
             <div class="col-md-4 middle-div">
-                {% assign current_variant = product.selected_or_first_available_variant %}
-
-                {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-
-                <img src="{{ featured_image | img_url: "large" }}" alt="{{ featured_image.alt | escape }}" />
+               <img src="{{ product.metafields.custom_fields["benefits_product_image"] }}" alt="">
             </div>
+           {% endif %}
+           
+           {% if product.metafields.custom_fields["right_side_benefits"] != blank %}
             <div class="col-md-4 col-6 right-div">
-                <div class="sub-div">
-                    <p>4</p>
-                    <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_69.png?v=1631734338"
-                        alt="" />
-                    <small>Pollution and other impurities from pores</small>
-                </div>
-                <div class="sub-div">
-                    <p>5</p>
-                    <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_68.png?v=1631734338"
-                        alt="" />
-                    <small>Skin is revitalized and smooth after cleansing.</small>
-                </div>
-                <div class="sub-div">
-                    <p>6</p>
-                    <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_68.png?v=1631734338"
-                        alt="" />
-                    <small>Skin is revitalized and smooth after cleansing.</small>
-                </div>
+              {% for item in product.metafields.custom_fields["right_side_benefits"] %} 
+              <div class="sub-div">
+                  <p>{{ item["right_side_number"] }}</p>
+                  <img src="{{ item["right_side_image"] }}" alt="">
+                  <small>{{ item["right_side_text"] }}</small>
+               </div>
+              {% endfor %}
             </div>
-        </div>
-    </div>
-</section>
+           {% endif %}
+           
+         </div>
+      </div>
+   </section>

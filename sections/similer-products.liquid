@@ -1,0 +1,24 @@
+{% if product.metafields.custom_fields["add_related_products"] != blank %}
+<section class="featured-product related-products">
+		<div class="container">
+			<div class="top-head">
+				<h2>Related Products</h2>
+			</div>
+			<div id="product-list" class="owl-carousel">
+              {% assign product_refs = product.metafields.custom_fields["add_related_products"] | split: "|" %}
+              {% for product_handle in product_refs %}
+				<div class="product-item">
+                  {% assign product_ref = all_products[product_handle] %}
+                  <a class="product-image" href="{{ product_ref.url }}"><img src="{{ product_ref | img_url: '900x900' }}" width="70%" /></a>
+            	  <a href="{{ product_ref.url }}"><h6>{{ product_ref.title }}</h6></a>
+        		  <span class="shopify-product-reviews-badge" data-id="{{ product_ref.id }}"></span>
+                  <h5>&#8377; {{product_ref.price |  money_without_currency  }} <span> {{product_ref.compare_at_price | money_without_currency }}</span></h5>
+     			  {% include 'related-addtocart' %}	
+				</div>
+             {% endfor %}
+				
+			</div>
+		</div>
+	</section>
+
+{% endif %}

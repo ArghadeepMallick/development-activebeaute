@@ -1,32 +1,44 @@
 <div id="top-bar" class="owl-carousel">
-    <p>{{ section.settings.home-top-one }}</p>
-    <p class="middle">{{ section.settings.home-top-two }}</p>
-  <p>{{ section.settings.home-top-three }}</p>
+  <p><a href="{{section.settings.home_topbar_link}}">{{section.settings.home_topbar_text}}</a></p>
+  <p class="middle"><a href="{{section.settings.home_topbar_link_one}}">{{section.settings.home_topbar_text_one}}</a></p>
+  <p><a href="{{section.settings.home_topbar_text_two}}">{{section.settings.home_topbar_text_two}}</a></p>
 </div>
 
-{% schema %}
-{
-    "name": "Top Bar",
-	"settings": [
-	  {
-		"id": "home-top-one",
-		"type": "text",
-		"label": "First Topbar text",
-		"default": "Free Shipping on Rs. 49+"
-     },
-	 {
-		"id": "home-top-two",
-		"type": "text",
-		"label": "Second Topbar Text",
-		"default": "Free Cotton Rounds on $49+ | Code: REUSE"
-     },
-	{
-		"id": "home-top-three",
-		"type": "text",
-		"label": "Third Topbar text",
-		"default": "ACTIVE BEAUTE PerksGet Started"
-     }
-	]
 
-}
+{% schema %}
+  {
+    "name": "Homepage Top Bar",
+	"settings": [
+		{
+          "id": "home_topbar_text",
+          "type": "text",
+       		"label": "1st TEXT"
+        },
+		{
+          "id": "home_topbar_link",
+          "type": "url",
+       		"label": "1st LINK"
+        },
+		{
+          "id": "home_topbar_text_one",
+          "type": "text",
+       		"label": "2nd TEXT"
+        },
+		{
+          "id": "home_topbar_link_one",
+          "type": "url",
+       		"label": "2nd LINK"
+        },
+		{
+          "id": "home_topbar_text_two",
+          "type": "text",
+       		"label": "3rd TEXT"
+        },
+
+          {
+              "id": "home_topbar_link_two",
+              "type": "url",
+                   "label": "3rd LINK"
+            }]
+  }
 {% endschema %}
