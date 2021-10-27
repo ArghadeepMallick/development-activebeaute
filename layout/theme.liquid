@@ -1,177 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  
-  
-	<link rel="stylesheet" href="{{ 'style.css' | asset_url }}" />
-	
-  
-  <link rel="shortcut icon" href="./image/logo.svg" type="image/x-icon">
-	<title>{{ page_title }}</title>
-  
-  <script>!function(){window.SLIDECART=!0;window.SLIDECART_FORMAT='{{shop.money_format}}';var e="https://cdn.jsdelivr.net/gh/apphq/slidecart-dist@master/slidecarthq.js?"+(new Date).getTime(),t=document.createElement("script");t.type="text/javascript",t.src=e,document.querySelector("body").appendChild(t)}();</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="shortcut icon" href="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/logo.svg?v=1631734338" type="image/x-icon" />
+  <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" />
+  <title>ACTIVE BEAUTE | Home Page</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YY059FC2EH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YY059FC2EH');
-</script>
+  {%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
   
-  
-
-{% include 'globo.formbuilder.scripts' %}
+  {{ content_for_header }}
 </head>
 
 <body>
   <span class="screen-darken"></span>
   
-  
   {% section 'topbar' %}
-  {% section 'header' %}
+  {% section 'navbar' %}
   
+  {{ content_for_layout }}
 
-
-{{ content_for_header }}
-
-{{ content_for_layout }}
-  
-  
   <!-- footer start  -->
-	<footer class="padding-top-bottom" >
-		<div class="container">
-			<div class="row d-flex justify-content-between">
-              {%- for link in linklists.footer.links -%}
-				<div class="col-md-3 col-6 middle-list">
-					<ul>
-						<li><h6>{{ link.title }}</h6></li>
-                      {%- if link.links != blank -%}
-                      
-                      {%- for child_link in link.links -%}
-						<li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
-                      {%- endfor -%}
-                      
-                      {%- endif -%}
-                      
-					</ul>
-				</div>
-              {%- endfor -%}
-              
-				
-				
-				<div class="col-md-3 newsletter-input">
-					<h6>Sign up for our newsletter!</h6>
-					<div class="input-group mb-3">
-					   <input type="text" class="form-control" placeholder="Your email goes here"
-						  aria-label="Recipient's username" aria-describedby="button-addon2" required />
-					   <button type="send" class="btn btn-outline-secondary" type="button" id="button-addon2"><img src="https://cdn.shopify.com/s/files/1/0597/8216/8740/files/send.svg?v=1631655230" alt="..." /></button>
-					</div>
-					<p>Email: contactus@athenaconsumer.com</p>
-					<p>Feedback & Queries: +91 9632111887/ 9654283405</p>
-				 </div>
-			</div>
-            <div class="footer-socialmedia">
-              <ul>
-                <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0597/8216/8740/files/instagram.png?v=1634729082" width="30px"/> </a></li>
-                <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0597/8216/8740/files/facebook.png?v=1634729082" width="30px"/> </a></li>
-                <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0597/8216/8740/files/twitter.png?v=1634729082" width="30px"/> </a></li>
-                <li><a href="#!"><img src="https://cdn.shopify.com/s/files/1/0597/8216/8740/files/linkedin.png?v=1634729082" width="30px"/> </a></li>
-              </ul>  	
-            </div>
-			<div class="footer-text">
-				<p>© Copyright 2021 Active Beaute. All rights reserved.</p>
-			</div>
-		</div>
-	</footer>
-	<!-- footer end  -->
+  <footer class="padding-top-bottom">
+    <div class="container">
+      <div class="row d-flex justify-content-between">
+        <div class="col-md-3 col-4 middle-list">
+          <ul>
+            <li>
+              <h6>CUSTOMER SERVICES</h6>
+            </li>
+            <li><a href="#!">FAQ’s</a></li>
+            <li><a href="#!">Delivery & Returns</a></li>
+            <li><a href="#!">Terms & Conditions</a></li>
+            <li><a href="#!">Privacy Policy</a></li>
+            <li><a href="#!">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-4 middle-list">
+          <ul>
+            <li>
+              <h6>ACCOUNT</h6>
+            </li>
+            <li><a href="#!">My Profile</a></li>
+            <li><a href="#!">My Orders</a></li>
+            <li><a href="#!">Track Orders</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-4 middle-list">
+          <ul>
+            <li>
+              <h6>Quick Links</h6>
+            </li>
+            <li><a href="#!">Our Story</a></li>
+            <li><a href="#!">Our Team</a></li>
+            <li><a href="#!">Press</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 newsletter-input">
+          <h6>Sign up for our newsletter!</h6>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Your email goes here" aria-label="Recipient's username"
+              aria-describedby="button-addon2" required />
+            <button type="send" class="btn btn-outline-secondary" type="button" id="button-addon2"><img
+                src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/send.svg?v=1631734338" alt="..." /></button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© Copyright 2021 Active Beaute. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer end  -->
 
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-	<script src="{{ 'main.js' | asset_url }}"></script>
-{% if template contains 'product' %}
-    {{ 'option_selection.js' | shopify_asset_url | script_tag }}
-    <script type="text/javascript">
-      (function($) {
-        var onVariantSelected = function(variant, selector) {
-          // Update price display.
-          var formattedPrice = variant.price/100;
-          var newprice = "Rs ".formattedPrice;
-          $('#product-price').text(formattedPrice);
-          // Enable or disable the Add to Cart button.
-          $('#add-to-cart').attr('disabled', variant.available ? null : 'disabled');
-          // Update the featured image.
-          if(variant.featured_image) {
-            var sizedImageUrl = Shopify.Image.getSizedImageUrl(variant.featured_image.src, 'medium');
-            $('#featured-image').attr('src', sizedImageUrl);
-          }
-        };
-        // Instantiate the option selectors.
-        var optionSelectors = new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: onVariantSelected, enableHistoryState: true });
-        // Create an event listener to set a specific variant when clicking on image thumbnails.
-        $(document).on('click', '[data-change-variant]', function(e) {
-          e.preventDefault(); 
-                    //alert($(this).find('img').attr("src"));
-          var imageurls = $(this).find('img').attr("src");
 
-           $('#featured-image').attr('src', imageurls);
 
-           
-//           optionSelectors.selectVariant($(this).data('changeVariant'));
-        });
-        // Create an event listener to set a specific variant option when clicking on swatches.
-        $(document).on('click', '[data-change-option]', function(e) {
-          e.preventDefault();
-          var optionIndex = parseInt($(this).data('changeOption')), optionValue = $(this).data('changeValue');
-          if(optionSelectors.optionExistInSelect(optionSelectors.selectors[optionIndex].element, optionValue)) {
-            $(optionSelectors.selectors[optionIndex].element).val(optionValue).trigger('change');
-          }
-        });
-      }(jQuery));
-    </script>
-    {% endif %}
-  
-  <script>
-    
-  
-    $(function(){
-    $('.dropdown').hover(function() {
-        $(this).addClass('open');
-    },
-    function() {
-        $(this).removeClass('open');
-    });
-});
-  </script>
-  <script>
-    (function($) {
-        var comparePrice = $('.product-compare-at-price');
-        var regularPrice = $('.product-regular-price');
-        var variantOptions = $('.product-variant-selector');
 
-        if ( variantOptions.length ) {
-            variantOptions.on('change', function() {
-                var cPrice = $(this).find(":selected").attr("data-compare-price");
-                comparePrice.html(cPrice);
-                var rPrice = $(this).find(":selected").attr("data-regular-price");
-                regularPrice.html(rPrice);
-            });
-        }
-    })(jQuery);
-</script>
-
-  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="{{ 'main.js' | asset_url }}"></script>
 </body>
 
 </html>

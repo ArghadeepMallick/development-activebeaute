@@ -1,204 +1,133 @@
-{% section 'header' %}
-{% section 'top-icon-categories' %} 
-<style>
-  
-  nav .main-menu img {filter: brightness(1) invert(0);}
-  nav .main-menu ul li a {color: #383838;}
-  nav a.menu-icon img {filter: brightness(1) invert(0) !important;}
-  
-  .Form__Item input {width:100%;border: 2px solid #383838 !important;}
-  
-  .forgot-password button { background:none;color:#383838;cursor: pointer;text-align: center;width: 100%;font-size: 12px;}
-  .forgot-password .Text--subdued {text-transform:uppercase;margin-top:30px;display:block; }
-  
-  a.thecreate-one {text-transform:uppercase;font-weight:80;color: #445036 !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    text-decoration: underline !important;
-    background-color: transparent; }
-  .forgot-password button:hover {background:none;color:#383838; }
-  
-  
-  p.error_msg a  {text-transform:uppercase;font-weight:80;color: #445036 !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    text-decoration: underline !important;
-    background-color: transparent; }
-  .forgot-password button:hover {background:none;color:#383838; }
-  
-  .thelogin-button button {border:0px !important; width:100%;padding: 9px;}
-  .thelogin-button  {width:100% !important;padding:0px !important;margin-top:10px !important; }
-  
-  
-  
-  .Form__Item{text-align:center;padding-top: 10px;}
-  .formcontainer{width: 400px;margin: auto;border: 1px solid #445036;padding: 20px;margin-bottom: 10px;border-radius:3px;}
-  .Form__Title, .Form__Legend{text-align:center;}
-  .Form__Input{border: 1px solid #445036;}
-  .buttondiv{margin: auto; width: 300px; text-align: center; padding: 10px;}
-  .buttondiv2{margin: auto; width: 300px; text-align: center; padding:10px}
-  .Form__Title .Heading, .Form__Legend {text-align:center;}
-</style>
+<div class="page-width">
+  <div class="grid">
 
-<section class="thelogin-pages contcat-us top-bototm-padding-new">
-   <div class="container">
-      <div class="row justify-content-center">
-         <div class="col-md-8">
+    <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+      <div class="form-message form-message--success hide" id="ResetSuccess" tabindex="-1">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
 
-<section data-section-id="login" data-section-type="login">
-    <div class="formcontainer">
-      <div class="PageContent PageContent--fitScreen PageContent--extraNarrow">
-        {%- assign is_recover_active = false -%}
-  
-        {%- form 'recover_customer_password' -%}
-          {%- if form.errors or form.posted_successfully? -%}
-            {%- assign is_recover_active = true -%}
-          {%- endif -%}
-        {%- endform -%}
-  
-        {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        CUSTOMER LOGIN FORM
-        --------------------------------------------------------------------------------------------------------------------
-        {%- endcomment -%}
-  
-        {%- if is_recover_active -%}
-          {%- assign login_default_visibility = 'display: none' -%}
-        {%- else -%}
-          {%- assign login_default_visibility = 'display: block' -%}
-        {%- endif -%}
-  
-        {%- form 'customer_login', name: 'login', class: 'Form Form--spacingTight', id: 'customer_login', style: login_default_visibility -%}
-          <div class="Form__Header">
-            <h1 style="font-weight:700;" class="Form__Title Heading u-h1">Login</h1>
-            <p class="Form__Legend">Please enter your e-mail and password:</p>
-          </div>
-  
+      <div id="CustomerLoginForm" class="form-vertical">
+
+        <h1 id="LoginHeading" class="text-center">{{ 'customer.login.title' | t }}</h1>
+
+        {% form 'customer_login', novalidate: 'novalidate' %}
+
           {%- if form.errors -%}
-            <p class="Form__Alert Alert Alert--error">
-              {{- form.errors.messages['form'] -}}
-            </p>
+            <div class="form-message form-message--error">
+              <h2 class="h3 form-message__title " tabindex="-1" data-form-status>{{ 'contact.form.error_heading' | t }}</h2>
+              {{ form.errors | default_errors }}
+            </div>
           {%- endif -%}
-  
-          <div class="Form__Item edit-box">
-            <input style="border: 1px solid #445036;" type="email" class="Form__Input" name="customer[email]" required="required" placeholder="Email" aria-label="Email" autofocus>
-<!--             <label class="Form__FloatingLabel">{{ 'customer.login.email' | t }}</label> -->
-          </div>
-  
-          <div class="Form__Item edit-box">
-            <input style="border: 1px solid #445036;" type="password" class="Form__Input" name="customer[password]" required="required" placeholder="Pasword" aria-label="Pasword">
-<!--             <label class="Form__FloatingLabel">{{ 'customer.login.password' | t }}</label> -->
-          </div>
-         <input type="hidden" name="checkout_url" value="/account?we=l" />
-        
-        <div class="buttondiv thelogin-button" > 
-        <button class="logout-button" style="border: 1px solid #ef6b37;" type="submit" class="btn btn--purchase Form__Submit Button Button--primary Button--full">Login</button>
-        </div>	
-          
-        <br> 
-        
-  
-          <div class="buttondiv2 forgot-password" style="  " class="Form__Hint Form__Hint--center">
-            
-           <button type="button" class="btn btn--purchase Form__ItemHelp Link Link--primary recoverpassbtn" data-action="toggle-recover-form">Forgot Password?</button>
-            <span class="Text--subdued">Don't have an account?</span>
-            <a class="thecreate-one" href="/account/register" class="Link Link--secondary"> Create one</a>
-          </div>
-        {%- endform -%}
-  
-        {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        CUSTOMER RECOVERY FORM
-        --------------------------------------------------------------------------------------------------------------------
-        {%- endcomment -%}
-  
-        {%- if is_recover_active -%}
-          {%- assign recover_default_visibility = 'display: block' -%}
-        {%- else -%}
-          {%- assign recover_default_visibility = 'display: none' -%}
-        {%- endif -%}
-  
-        {%- form 'recover_customer_password', name: 'recover', class: 'Form Form--spacingTight', id: 'recover_customer_password', style: recover_default_visibility -%}
-          <section class="Form__Header">
-            <h1 class="Form__Title Heading u-h1">{{ 'customer.recover_password.title' | t }}</h1>
-  
-            {%- unless form.posted_successfully? -%}
-              <p class="Form__Legend">{{ 'customer.recover_password.description' | t }}</p>
-            {%- endunless -%}
-          </section>
-  
-        {%- if form.errors -%}
-        <p class="Form__Alert Alert Alert--error">
-          {{- form.errors.messages['form'] -}}
-        </p>
-        {% for field in form.errors %}
-        {% if form.errors.messages[field] contains "No account found with that email." %}
-        <p class="error_msg" >Couldn't find an account with your email ID?  <a href="/account/register" style="text-transform: uppercase;
-    font-weight: 80;
-    color: #445036 !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    text-decoration: underline !important;
-    background-color: transparent;" class="thecreate-one  account__create">Click here</a> to create an account with the same email ID and we'll help you create a new password. Your new account will have your previous order history and wallet points balance.</p>
-        {% endif %}
-        {% endfor %}
-        {%- endif -%}
-  
-          {%- if form.posted_successfully? -%}
-            <p class="Form__Alert Alert Alert--success">
-              Password Recovery Email Sent
+
+          <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+          <input
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            {%- if form.errors contains 'form' -%}
+              class="input--error"
+              aria-invalid="true"
+            {%- endif -%}
+            >
+
+          {% if form.password_needed %}
+            <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+            <input
+              type="password"
+              value=""
+              name="customer[password]"
+              id="CustomerPassword"
+              {%- if form.errors contains 'form' -%}
+                class="input--error"
+                aria-invalid="true"
+              {%- endif -%}
+            >
+          {% endif %}
+
+          <div class="text-center">
+            {% if form.password_needed %}
+              <p><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+            {% endif %}
+
+            <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
+
+            <p>
+              {{ 'layout.customer.create_account' | t | customer_register_link }}
             </p>
-          {%- endif -%}
-  
-          <div class="Form__Item">
-            <input style="padding: 10px;" type="email" class="Form__Input" name="email" required="required" placeholder="Enter Email" aria-label="Your Email" autofocus>
-<!--             <label class="Form__FloatingLabel">Customer Email</label> -->
           </div>
-  
-          <button type="submit" style="width:100%;padding:10px !important; margin: auto;border: 1px solid #ef6b37;text-align: center;display: block;margin-top: 20px;margin-bottom: 23px;" class="btn btn--purchase Form__Submit Button Button--primary Button--full">Reset Pasword</button>
-  
-          <div class="Form__Hint Form__Hint--center text-center">
-            <span class="Text--subdued">Recover Password</span>
-            <button type="button" style="width:100%;padding:10px !important; border: 1px solid #ef6b37;" class="btn btn--purchase Link Link--secondary backtologinbtn" data-action="toggle-recover-form">Reset Password</button>
-          </div>
-        {%- endform -%}
+
+        {% endform %}
       </div>
+
+      <div id="RecoverPasswordForm" class="hide">
+
+        <div class="text-center">
+          <h2 id="RecoverHeading">{{ 'customer.recover_password.title' | t }}</h2>
+          <p>{{ 'customer.recover_password.subtext' | t }}</p>
+        </div>
+
+        <div class="form-vertical">
+          {% form 'recover_customer_password' %}
+
+            {% comment %}
+              Add a hidden span to indicate the form was submitted succesfully.
+            {% endcomment %}
+            {% if form.posted_successfully? %}
+              <span class="hide reset-password-success"></span>
+            {% endif %}
+
+            <label for="RecoverEmail">{{ 'customer.recover_password.email' | t }}</label>
+            <input
+              type="email"
+              value=""
+              name="email"
+              id="RecoverEmail"
+              class="input-full{% if form.errors %} input--error{% endif %}"
+              autocorrect="off"
+              autocapitalize="off"
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="RecoverEmail-email-error"
+              {%- endif -%}
+              >
+            {%- if form.errors -%}
+              <span id="RecoverEmail-email-error" class="input-error-message">
+                <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                {% include 'icon-error' %}
+                <span>{{ form.errors.messages['form'] }}</span>
+              </span>
+            {%- endif -%}
+
+            <div class="text-center">
+              <p>
+                <input type="submit" class="btn" value="{{ 'customer.recover_password.submit' | t }}">
+              </p>
+
+              <a href="#LoginHeading" id="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</a>
+            </div>
+          {% endform %}
+        </div>
+
+      </div>
+
+      {% comment %}
+        If accounts are set as optional, the following will be shown as an option
+        during checkout, not on the default /login page.
+      {% endcomment %}
+      {% if shop.checkout.guest_login %}
+        <div class="text-center">
+          <hr class="hr--invisible">
+          <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+          {% form 'guest_login' %}
+            <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+          {% endform %}
+        </div>
+      {% endif %}
     </div>
-  </section>
-           
-           
-         </div>
-      </div>
-   </div>
-</section>
 
-<script>
-$(".recoverpassbtn").on("click",function(){
-
-    $("#recover_customer_password").show();
-  	$("#customer_login").hide();
-  
-
-});
-  
-  $(".backtologinbtn").on("click",function(){
-
-    $("#recover_customer_password").hide();
-  	$("#customer_login").show();
-  
-
-});
-
-</script>
-  <script>
-    $( document ).ready(function() {
-      $( "#customer_login input[name*='checkout_url']" ).each(function(){
-        var checkout_url = $(this).val();
-        var search = "checkouts";
-        if(checkout_url.indexOf(search) != -1){
-          var newcheckouturl = checkout_url+'&ref=log';
-          $(this).val(newcheckouturl);
-        }
-      });
-    });
-  </script>
+  </div>
+</div>
