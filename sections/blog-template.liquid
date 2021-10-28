@@ -1,0 +1,18 @@
+<section class="allblogs padding-top-bottom">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Read Tips & Blogs</h2>
+    <div class="row">
+      {% for article in blogs.news.articles %} 
+      	<div class="col-md-4">
+          <div class="allblog-item">
+          <a href="{{ article.url }}">
+            <img src="{{ article | img_url: 'large' }}" width="100%">
+            <p class="blog-date  fw-bold text-uppercase">DATE: {{ article.created_at | date: "%a, %b %d, %y" }}</p>
+            <h5 class="blog-text">{{ article.title }}</h5>
+          </a> 
+      	</div>
+      	</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

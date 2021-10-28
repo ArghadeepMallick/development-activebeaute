@@ -1,0 +1,7 @@
+<form method="post" action="/cart/add" class="col-button">
+  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+  <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
+  <div class="addtocart">
+  <input class="btn add-to-cart" type="submit" value="Add to cart" />
+  </div>
+</form>

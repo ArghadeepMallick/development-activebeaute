@@ -1,0 +1,56 @@
+<section class="home-alider">
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          {% for block in section.blocks %}
+			<div class="carousel-inner">
+				<div class="carousel-item  {% if forloop.first %} active {% endif %}">
+					<a href="{{block.settings.slidelinke}}">
+                    <img class="for-pc" src="{{block.settings.image_slide | img_url:'1800x600'}}" width="100%"/>
+                    <img class="for-mb" src="{{block.settings.image_slide_monile | img_url:'960x1280'}}" width="100%"/>
+                  </a>
+				</div>
+			</div>
+      {% endfor %}
+          
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+          
+		</div>
+	</section>
+
+
+
+
+{% schema %}
+  {
+    "name": "Homepage Slider",
+    "blocks": [
+    {
+      "type": "select",
+      "name": "Add Slide",
+      "settings": [
+        {
+          "id": "image_slide",
+          "type": "image_picker",
+       		"label": "Add Image Desktop"
+        },
+        {
+          "id": "image_slide_monile",
+          "type": "image_picker",
+       		"label": "Add Image Mobile"
+        },
+        {
+          "id": "slidelinke",
+          "type": "url",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

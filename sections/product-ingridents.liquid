@@ -1,0 +1,19 @@
+<section class="ingridents">
+      	 <div class="top-head">
+      	 	<h2>KEY ACTIVE INGREDIENTS THAT MAKE THE DIFFERENCE</h2>	
+      	 </div>
+     {% if product.metafields.custom_fields["key_ingredients"] != blank %}
+      <div class="container">
+         <div id="ingridents" class="owl-carousel owl-theme row">
+            {% for item in product.metafields.custom_fields["key_ingredients"] %}
+           <div class="item">
+               <img src="{{ item["key_ingredients_image"] }}" alt="">
+               <h6>{{ item["key_ingredients_heading"] }}</h6>
+               <p>{{ item["key_ingredients_text"] }}</p>
+            </div>
+           {% endfor %}
+         </div>
+      </div>
+     {% endif %}
+  
+   </section>

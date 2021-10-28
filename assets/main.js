@@ -35,8 +35,8 @@ $(document).ready(function () {
         autoplayHoverPause: true,
         responsive: {
             0: {
-                items: 3,
-                nav: true,
+                items:2,
+                nav: false,
             },
             600: {
                 items: 3,
@@ -75,6 +75,28 @@ $(document).ready(function () {
         responsiveClass: true,
         responsive: {
             0: {
+                items:1,
+                nav: true,
+                margin: 15,
+            },
+            600: {
+                items: 3,
+                nav: true,
+                margin: 15,
+            },
+            1000: {
+                items:4,
+                nav: true,
+                loop: false,
+            },
+        },
+    });
+    $("#related-list").owlCarousel({
+        loop: false,
+        margin:20,
+        responsiveClass: true,
+        responsive: {
+            0: {
                 items:1.5,
                 nav: false,
                 margin: 15,
@@ -87,7 +109,7 @@ $(document).ready(function () {
             1000: {
                 items:4,
                 nav: true,
-                loop: true,
+                loop: false,
             },
         },
     });
@@ -118,10 +140,13 @@ $(document).ready(function () {
         loop: true,
         margin: 20,
         responsiveClass: true,
+      autoplay: true,
+      autoplayTimeout: 2000,
+        autoplayHoverPause: true,
         responsive: {
             0: {
-                items: 1.4,
-                nav: false,
+                items: 1,
+                nav: true,
                 margin: 15,
             },
             600: {
@@ -142,7 +167,7 @@ $(document).ready(function () {
         responsiveClass: true,
         responsive: {
             0: {
-                items:1.4,
+                items:1,
                 nav: false,
                 margin: 15,
             },
@@ -176,7 +201,7 @@ $(document).ready(function () {
                 margin: 15,
             },
             1000: {
-                items: 4,
+                items:5,
                 nav: false,
                 loop: true,
             },
@@ -186,20 +211,23 @@ $(document).ready(function () {
         loop: true,
         margin: 20,
         responsiveClass: true,
+      autoplay: true,
+      autoplayTimeout: 2000,
+        autoplayHoverPause: true,
         responsive: {
             0: {
+                items: 2,
+                nav: false,
+                margin: 15,
+            },
+            600: {
                 items: 2,
                 nav: true,
                 margin: 15,
             },
-            600: {
+            1000: {
                 items: 3,
                 nav: true,
-                margin: 15,
-            },
-            1000: {
-                items: 4,
-                nav: false,
                 loop: true,
             },
         },
@@ -208,12 +236,12 @@ $(document).ready(function () {
         dotsContainer: '#carousel-custom-dots',
         responsive: {
             0: {
-                items: 1.2,
+                items: 1,
                 nav: false,
                 loop: true,
             },
             600: {
-                items: 1.2,
+                items: 1,
                 nav: false,
                 loop: true,
             },

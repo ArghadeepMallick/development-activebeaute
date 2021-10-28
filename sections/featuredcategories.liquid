@@ -1,0 +1,58 @@
+<section class="skintone category padding-top-bottom">
+		<div class="container">
+			<div class="top-head">
+				<h2>{{section.settings.fsectiontitle}}</h2>
+			</div>
+			<div id="category-list" class="owl-carousel">
+              {% for block in section.blocks %}
+				<div class="tones-item">
+					<a href="{{block.settings.offer_link}}" class="category-img">
+						<img src="{{block.settings.offer_image | img_url:'600x600'}}" />
+						<p>{{block.settings.offer_text}}</p>
+					</a>
+				</div>
+              {% endfor %}
+				
+				
+			</div>
+		</div>
+	</section>
+
+
+{% schema %}
+  {
+    "name": "Homepage New Offer",
+	"settings": [
+		{
+          "id": "fsectiontitle",
+          "type": "text",
+       		"label": "Add Section Title"
+        }
+
+	],
+
+    "blocks": [
+    {
+      "type": "select",
+      "name": "Add Featured Icon Section",
+      "settings": [
+        {
+          "id": "offer_image",
+          "type": "image_picker",
+       		"label": "Add Image"
+        },
+		{
+          "id": "offer_text",
+          "type": "text",
+       		"label": "Add Text"
+        },
+		{
+          "id": "offer_link",
+          "type": "url",
+       		"label": "Add Link"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}
