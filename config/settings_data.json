@@ -84,6 +84,18 @@
       },
       "homepageicons": {
         "type": "homepageicons",
+        "blocks": {
+          "640034a0-fe9a-47db-89ec-018c28d97619": {
+            "type": "select",
+            "settings": {
+              "feature_icon": "shopify:\/\/shop_images\/Rectangle_71.png",
+              "feature_icon_text": "Not Tested On Animals"
+            }
+          }
+        },
+        "block_order": [
+          "640034a0-fe9a-47db-89ec-018c28d97619"
+        ],
         "settings": {
         }
       },
