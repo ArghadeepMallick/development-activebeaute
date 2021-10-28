@@ -6,7 +6,7 @@
 			<div class="row">
 				<div id="blog-list" class="owl-carousel">
                   
-                  {% for article in blogs.blogs.articles limit:3 %}
+                  {% for article in blogs.news.articles limit:3 %}
 					<div class="blog-item">
                       <a href="{{ article.url }}">
 						<img src="{{ article | img_url: 'large' }}" alt="">
@@ -20,6 +20,6 @@
 			</div>
 		</div>
   <div class="blog-button">
-    <a href="https://activbeaute.com/blogs/blogs">READ MORE</a>
+    <a href="{{ article.url }}">READ MORE</a>
   </div>
 	</section>
