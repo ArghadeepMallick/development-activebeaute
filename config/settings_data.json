@@ -109,6 +109,28 @@
       },
       "featuredcategories": {
         "type": "featuredcategories",
+        "blocks": {
+          "9b41c506-52e4-4e3e-8055-3d87dd23085c": {
+            "type": "select",
+            "settings": {
+              "offer_image": "shopify:\/\/shop_images\/Rectangle_43.png",
+              "offer_text": "Face Wash",
+              "offer_link": "shopify:\/\/products\/conditioning-mask"
+            }
+          },
+          "531dad61-45be-416f-b5be-6efdc035d186": {
+            "type": "select",
+            "settings": {
+              "offer_image": "shopify:\/\/shop_images\/cleansers.jpg",
+              "offer_text": "SERUM",
+              "offer_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "9b41c506-52e4-4e3e-8055-3d87dd23085c",
+          "531dad61-45be-416f-b5be-6efdc035d186"
+        ],
         "settings": {
           "fsectiontitle": ""
         }
