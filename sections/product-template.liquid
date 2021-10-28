@@ -1,54 +1,89 @@
 <section class="product-info padding-top-bottom">
-      <div class="container-fluid">
-         <div class="row">
-            <div class="col-md-6 col-12 image-theme">
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-md-6 col-12 image-theme">
                <div id="single-product" class="owl-carousel">
-                  
-				{% for image in product.images %}	
-                   <div class="item">
-                       <img src="{{ image.src | product_img_url: '1000x' }}" alt="">
-                    </div>
-                 {% endfor %}
-                  
+                   {% for image in product.images %}
+                       <img src="{{image.src | img_url: '1024x' }}" alt="{{image.alt}}" />
+                   {% endfor %}
                </div>
-               <ul id='carousel-custom-dots' class='owl-dots'> 
-                 {% for image in product.images %}	
-                  <li class='owl-dot'><img src="{{ image.src | product_img_url: '1000x' }}" alt=""></li> 
-                 {% endfor %}
-                </ul>
-            </div>
-            
-            
-            <div class="col-md-6 col-12">
-               <h2 class="text-uppercase">{{product.title}}</h2>
-               <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+               <ul id='carousel-custom-dots' class='owl-dots'>
+                   {% for image in product.images %}
+                       <li class='owl-dot'>
+                           <img src="{{image.src | img_url: '1024x' }}" alt="{{image.alt}}" />
+                       </li>
+                   {% endfor %}
+               </ul>
+           </div>
+
+           <div class="col-md-6 col-12">
+               <h2 class="text-uppercase">{{ product.title }}</h2>
+               <ul class="reviewstars">
+                   <li><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" /></li>
+                   <li><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" /></li>
+                   <li><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" /></li>
+                   <li><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" /></li>
+                   <li><img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/star.svg?v=1631734338" /></li>
+                   <li>(10 Reviews)</li>
+               </ul>
 
                <div class="d-flex align-items-start flex-column">
-                  <div class="productpoints">
-                    {% if product.metafields.custom_fields["short_description"] != blank %}
-                     <p>{{ product.metafields.custom_fields["short_description"] }}</p>
-                    {% endif %}
-                    
-                    {% if product.metafields.custom_fields["all_concerns"] != blank %}
-                     <p class="disp">concern: {{ product.metafields.custom_fields["all_concerns"] }}</p>
-                    {% endif %}
-                    
-                    
-                  </div>
-                 
-                 {% if product.metafields.custom_fields["product_infor_icons"] != blank %}
-                  <div class="tag-product">
-                    {% for item in product.metafields.custom_fields["product_infor_icons"] %}
-                     <div class="tag-mark">
-                        <img src="{{ item["icons_image"] }}" alt="..." />
-                        <p>{{ item["icon_text"] }}</p>
-                     </div>
-                    {% endfor %}
-                  </div>
-                 {% endif %}
+
+                   <div class="productpoints">
+                       <p>{{ product.description }}</p>
+                       <p class="disp">concern: Dryness, Pollution, Dullness</p>
+                   </div>
+                   <div class="tag-product">
+                       <div class="tag-mark">
+                           <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-02.svg?v=1631734337" alt="..." />
+                           <p>GMO Free</p>
+                       </div>
+                       <div class="tag-mark">
+                           <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-03.svg?v=1631734337" alt="..." />
+                           <p>Veg & Cruelty
+                               Free</p>
+                       </div>
+                       <div class="tag-mark">
+                           <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-04.svg?v=1631734337" alt="..." />
+                           <p>No Colors Added</p>
+                       </div>
+                       <div class="tag-mark">
+                           <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-05.svg?v=1631734337" alt="..." />
+                           <p>Dermatologically Tested</p>
+                       </div>
+                       <div class="tag-mark">
+                           <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-01.svg?v=1631734337" alt="..." />
+                           <p>ECOCERT Certified</p>
+                       </div>
+                   </div>
+                   <div class="meserment">
+                       <p class="size">size: </p>
+                       {% for variant in product.variants %}
+                       {% if variant.available %}
+                       <button type="button" class="btn btn-outline-secondary">{{ variant.title }}</button>
+                       {% endif %}
+                       {% endfor %}
+                   </div>
+                   <div class="pricing">
+                       <p>{{product.compare_at_price_min | money }} <span class="max_price">{{product.compare_at_price_max | money }} </span></p>
+                   </div>
                </div>
-              {% include 'addtocartbutton' %}
-            </div>
-         </div>
-      </div>
-   </section>
+               <div class="addtocart-buynow">
+                   <div class="quantity">
+                       <div class="qty-input">
+                           <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
+                           <input class="product-qty" type="number" name="product-qty" min="0" max="10" value="1">
+                           <button class="qty-count qty-count--add" data-action="add" type="button">+</button>
+                       </div>
+                   </div>
+                   <div class="button-box">
+                       <a type="submit" name="add" href="#!">ADD TO CART</a>
+                   </div>
+                   <div class="btn button-img">
+                       <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/love.svg?v=1631734337" alt="">
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
