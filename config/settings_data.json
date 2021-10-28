@@ -65,10 +65,19 @@
               "testimonials": "Love Activ Beaute",
               "customerusername": "@Aashina Patwa"
             }
+          },
+          "8da7c41f-1124-4a10-a862-74b6bb4e6a05": {
+            "type": "select",
+            "settings": {
+              "customerimage": "shopify:\/\/shop_images\/Rectangle_37.png",
+              "testimonials": "I love Activ Beaute Brightening Day Gel Cream with SPF 30+. It's light , non greasy & suits my skin.",
+              "customerusername": "@username"
+            }
           }
         },
         "block_order": [
-          "7fe79621-04ae-4b38-96f9-bcb6559b3bc9"
+          "7fe79621-04ae-4b38-96f9-bcb6559b3bc9",
+          "8da7c41f-1124-4a10-a862-74b6bb4e6a05"
         ],
         "settings": {
         }
