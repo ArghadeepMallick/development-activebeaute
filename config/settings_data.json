@@ -91,10 +91,18 @@
               "feature_icon": "shopify:\/\/shop_images\/Rectangle_71.png",
               "feature_icon_text": "Not Tested On Animals"
             }
+          },
+          "6c5b2d31-49fa-4cd2-a80f-1dbd0cce414a": {
+            "type": "select",
+            "settings": {
+              "feature_icon": "shopify:\/\/shop_images\/Rectangle_73.png",
+              "feature_icon_text": "Not Tested On Animals"
+            }
           }
         },
         "block_order": [
-          "640034a0-fe9a-47db-89ec-018c28d97619"
+          "640034a0-fe9a-47db-89ec-018c28d97619",
+          "6c5b2d31-49fa-4cd2-a80f-1dbd0cce414a"
         ],
         "settings": {
         }
