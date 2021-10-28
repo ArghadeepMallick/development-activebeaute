@@ -49,10 +49,10 @@
       "featured-product": {
         "type": "featured-product",
         "settings": {
-          "good-sectiontitle": "",
-          "good-para-sectiontitle": "",
-          "hcsectiontitle": "",
-          "selectcollection": ""
+          "good-sectiontitle": "'NATURE'S BOUNTY WITH MODERN SCIENCE'",
+          "good-para-sectiontitle": "We’ve harnessed the potent botanically sourced active ingredients & pure extracts from nature to bring you products that go deep beneath the skin’s surface to transform the way your skin looks, feels and behaves.",
+          "hcsectiontitle": "SHOP OUR BESTSELLERS",
+          "selectcollection": "frontpage"
         }
       },
       "testimonials": {
