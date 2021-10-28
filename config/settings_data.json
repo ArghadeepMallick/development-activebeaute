@@ -57,6 +57,19 @@
       },
       "testimonials": {
         "type": "testimonials",
+        "blocks": {
+          "7fe79621-04ae-4b38-96f9-bcb6559b3bc9": {
+            "type": "select",
+            "settings": {
+              "customerimage": "shopify:\/\/shop_images\/Rectangle_15.png",
+              "testimonials": "Love Activ Beaute",
+              "customerusername": "@Aashina Patwa"
+            }
+          }
+        },
+        "block_order": [
+          "7fe79621-04ae-4b38-96f9-bcb6559b3bc9"
+        ],
         "settings": {
         }
       },
