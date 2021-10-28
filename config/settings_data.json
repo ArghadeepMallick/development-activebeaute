@@ -29,10 +29,19 @@
               "image_slide_monile": "shopify:\/\/shop_images\/mobileslider.jpg",
               "slidelinke": ""
             }
+          },
+          "d71cd055-4149-4f6f-85b0-de51303c6927": {
+            "type": "select",
+            "settings": {
+              "image_slide": "shopify:\/\/shop_images\/category-gold-club-image.jpg",
+              "image_slide_monile": "shopify:\/\/shop_images\/category-image-mb-gold.jpg",
+              "slidelinke": "shopify:\/\/collections\/all"
+            }
           }
         },
         "block_order": [
-          "0e5775a4-dab7-4b96-9ff3-0ba420a5d55d"
+          "0e5775a4-dab7-4b96-9ff3-0ba420a5d55d",
+          "d71cd055-4149-4f6f-85b0-de51303c6927"
         ],
         "settings": {
         }
