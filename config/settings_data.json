@@ -15,11 +15,25 @@
       "header": {
         "type": "header",
         "settings": {
-          "menuproduct": ""
+          "menuproduct": "shopify:\/\/collections\/all",
+          "menuproductimg": "shopify:\/\/shop_images\/Rectangle_80.png"
         }
       },
       "slideshow": {
         "type": "slideshow",
+        "blocks": {
+          "0e5775a4-dab7-4b96-9ff3-0ba420a5d55d": {
+            "type": "select",
+            "settings": {
+              "image_slide": "shopify:\/\/shop_images\/slider_1.png",
+              "image_slide_monile": "shopify:\/\/shop_images\/mobileslider.jpg",
+              "slidelinke": ""
+            }
+          }
+        },
+        "block_order": [
+          "0e5775a4-dab7-4b96-9ff3-0ba420a5d55d"
+        ],
         "settings": {
         }
       },
