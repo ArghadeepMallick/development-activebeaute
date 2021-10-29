@@ -1,37 +1,27 @@
 {% if product.metafields.custom_fields["faqs"] != blank %}
 {% assign data_attr = shop.metafields._cf_products["faqs"].data_attr %}
-
-<section class="theultimate-accordia faq padding-top-bottom">
-      <div class="container">
-      	 <div class="top-head">
-      	 	<h2>Frequently Asked Questions</h2>
-      	 </div>
-        <div class="row">
-		<div class="col-md-6 col-12">
-          {% for item in product.metafields.custom_fields["faqs"] %}
-          <button class="accordion">{{ item.title }}</button>
-          <div class="panel">
-            <p>{{ item["faq_-_answer"] }}</p>
-          </div>
-          <hr>
-          {% endfor %}  
-          
-		</div>
-        <div class="col-md-6 col-12">
-          {% for item in product.metafields.custom_fields["frequently_asked_question_-_ri"] %}
-          <button class="accordion">{{ item["faq_-_question"] }}</button>
-          <div class="panel">
-            {% if item.body != blank %}
-            <p>{{ item.body }}</p>
-            {% endif %}
-          </div>
-          <hr>
-          {% endfor %}  
-		</div>
-          </div>
+<div class="cf-widget-faqs cf-widget__accordion cf-auto-init" {{ data_attr }}>
+  <div class="cf-widget-items-wrapper">
+    {% for item in product.metafields.custom_fields["faqs"] %}
+    <div class="cf-widget-item" data-index="{{ forloop.index0 }}">
+      <div class="cf-accordion-title">
+        {{ item.title }}
       </div>
-</section>  
+      <div class="inner">
+        <div class="inner-padding">
 
+          {% if item.body != blank %}
+          <div class="cf-widget-field cf-widget-field__body cf-widget-field--html">
+            {{ item.body }}
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endif %}
 
 
