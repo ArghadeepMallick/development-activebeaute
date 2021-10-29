@@ -1,14 +1,27 @@
-{% if product.metafields.custom_fields["product_feature_icons"] != blank %}
-<section class="ico forinner-bg margin-top-bottom" style="background:#{{ product.metafields.custom_fields["product_icons_bg_color"] }} !important;">
-      <div class="container">
-         <div id="make-owl" class="owl-carousel owl-theme row">
-           {% for item in product.metafields.custom_fields["product_feature_icons"] %}
-            <div class="ico-item">
-               <img src="{{ item["product_feature_icon"] }}" alt="">
-<!--                <p>{{ item["product_feature_text"] }}</p> -->
-            </div>
-           {% endfor %}
+<section class="ico margin-top-bottom">
+   <div class="container">
+      <div id="make-owl" class="owl-carousel owl-theme row">
+         <div class="ico-item">
+            <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-02.svg?v=1631734337" alt="">
+            <p>Vegan</p>
+         </div>
+         <div class="ico-item">
+            <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-03.svg?v=1631734337" alt="">
+            <p>Cruelty-Free
+            </p>
+         </div>
+         <div class="ico-item">
+            <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-04.svg?v=1631734337" alt="">
+            <p>Allergy Friendly</p>
+         </div>
+         <div class="ico-item">
+            <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-05.svg?v=1631734337" alt="">
+            <p>Allergy Friendly</p>
+         </div>
+         <div class="ico-item">
+            <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/CER-05.svg?v=1631734337" alt="">
+            <p>GMO Free</p>
          </div>
       </div>
-   </section>
-{% endif %}
+   </div>
+ </section>

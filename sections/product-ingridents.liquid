@@ -1,19 +1,29 @@
-<section class="ingridents">
-      	 <div class="top-head">
-      	 	<h2>KEY ACTIVE INGREDIENTS THAT MAKE THE DIFFERENCE</h2>	
-      	 </div>
-     {% if product.metafields.custom_fields["key_ingredients"] != blank %}
-      <div class="container">
-         <div id="ingridents" class="owl-carousel owl-theme row">
-            {% for item in product.metafields.custom_fields["key_ingredients"] %}
-           <div class="item">
-               <img src="{{ item["key_ingredients_image"] }}" alt="">
-               <h6>{{ item["key_ingredients_heading"] }}</h6>
-               <p>{{ item["key_ingredients_text"] }}</p>
-            </div>
-           {% endfor %}
-         </div>
-      </div>
-     {% endif %}
-  
-   </section>
+<section class="ingridents padding-top-bottom">
+   <div class="top-head">
+       <h2>KEY INGREDIENTS THAT MAKE THE DIFFERENCE’</h2>	
+   </div>
+<div class="container-fluid">
+ <div id="ingridents" class="owl-carousel owl-theme row">
+    <div class="item">
+       <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_70.png?v=1631734338" alt="">
+       <h6>Aloe Vera</h6>
+       <p>Soothing, moisturizes skin, and reduces blemishes and scars.</p>
+    </div>
+    <div class="item">
+       <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_71.png?v=1631734338" alt="">
+       <h6>Organic Chamomile Oil</h6>
+       <p>Removes dry and dead skin, <br> makeup.</p>
+    </div>
+    <div class="item">
+       <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_72.png?v=1631734338" alt="">
+       <h6>Apple Extracts</h6>
+       <p>Skin is revitalized and smooth <br> after cleansing.</p>
+    </div>
+    <div class="item">
+       <img src="https://cdn.shopify.com/s/files/1/0602/5612/5135/files/Rectangle_73.png?v=1631734338" alt="">
+       <h6>Vitamin C</h6>
+       <p>Pollution and other impurities <br> from pores</p>
+    </div>
+ </div>
+</div>
+</section>
