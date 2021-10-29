@@ -31,6 +31,8 @@
   
 
 {% include 'globo.formbuilder.scripts' %}
+{{ 'custom-fields.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-fields-widgets.js' | asset_url }}" defer="defer"></script>
 </head>
 
 <body>

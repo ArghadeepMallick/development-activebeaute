@@ -7,6 +7,7 @@
       <div class="col-md-12 col-12">
         {% if product.metafields.custom_fields["faqs"] != blank %}
         {% assign data_attr = shop.metafields._cf_products["faqs"].data_attr %}
+
         <div class="cf-widget-faqs cf-widget__accordion cf-auto-init" {{ data_attr }}>
           <div class="cf-widget-items-wrapper">
             {% for item in product.metafields.custom_fields["faqs"] %}
@@ -16,7 +17,6 @@
               </div>
               <div class="inner">
                 <div class="inner-padding">
-
                   {% if item.body != blank %}
                   <div class="cf-widget-field cf-widget-field__body cf-widget-field--html">
                     {{ item.body }}
