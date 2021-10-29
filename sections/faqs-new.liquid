@@ -1,3 +1,6 @@
+{% if product.metafields.custom_fields["faqs"] != blank %}
+{% assign data_attr = shop.metafields._cf_products["faqs"].data_attr %}
+
 <section class="theultimate-accordia faq padding-top-bottom">
       <div class="container">
       	 <div class="top-head">
@@ -5,8 +8,8 @@
       	 </div>
         <div class="row">
 		<div class="col-md-6 col-12">
-          {% for item in product.metafields.custom_fields["faq_frequently_asked_question"] %}
-          <button class="accordion">{{ item["faq_-_question"] }}</button>
+          {% for item in product.metafields.custom_fields["faqs"] %}
+          <button class="accordion">{{ item.title }}</button>
           <div class="panel">
             <p>{{ item["faq_-_answer"] }}</p>
           </div>
@@ -18,7 +21,9 @@
           {% for item in product.metafields.custom_fields["frequently_asked_question_-_ri"] %}
           <button class="accordion">{{ item["faq_-_question"] }}</button>
           <div class="panel">
-            <p>{{ item["faq_-_answer"] }}</p>
+            {% if item.body != blank %}
+            <p>{{ item.body }}</p>
+            {% endif %}
           </div>
           <hr>
           {% endfor %}  
@@ -27,7 +32,7 @@
       </div>
 </section>  
 
-
+{% endif %}
 
 
 <script>
